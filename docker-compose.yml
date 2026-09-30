@@ -11,7 +11,7 @@ services:
  volumes:
  - pg_dados:/var/lib/postgresql/data
  networks:
- - app-network
+  - app-network
  # Serviço 2: Aplicação Node.js
  app:
   build: .
