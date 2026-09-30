@@ -18,7 +18,7 @@ services:
   container_name: minha_api_node_isabella
   restart: on-failure # Reinicia se falhar (ex: se o banco ainda estiver subindo)
  ports:
- - "8050:8050"
+ - "8009:8009"
  environment:
   DB_HOST: db # Nome do serviço do banco na rede do Compose
   DB_USER: admin
