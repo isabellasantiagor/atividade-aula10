@@ -27,7 +27,7 @@ services:
  depends_on:
  - db
  networks:
- - app-network
+  - app-network
 # Definição do Volume para persistência
 volumes:
  pg_dados:
