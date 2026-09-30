@@ -1,29 +1,29 @@
 services:
  # Serviço 1: Banco de Dados
  db:
- image: postgres:15-alpine
- container_name: meu_postgres_isabella
- restart: always
- environment:
- POSTGRES_USER: admin
- POSTGRES_PASSWORD: senha_super_secreta
- POSTGRES_DB: banco_teste
+  image: postgres:15-alpine
+  container_name: meu_postgres_isabella
+  restart: always
+  environment:
+  POSTGRES_USER: admin
+  POSTGRES_PASSWORD: senha_super_secreta
+  POSTGRES_DB: banco_teste
  volumes:
  - pg_dados:/var/lib/postgresql/data
  networks:
  - app-network
  # Serviço 2: Aplicação Node.js
  app:
- build: .
- container_name: minha_api_node_isabella
- restart: on-failure # Reinicia se falhar (ex: se o banco ainda estiver subindo)
+  build: .
+  container_name: minha_api_node_isabella
+  restart: on-failure # Reinicia se falhar (ex: se o banco ainda estiver subindo)
  ports:
  - "8050:8050"
  environment:
- DB_HOST: db # Nome do serviço do banco na rede do Compose
- DB_USER: admin
- DB_PASSWORD: senha_super_secreta
- DB_NAME: banco_teste
+  DB_HOST: db # Nome do serviço do banco na rede do Compose
+  DB_USER: admin
+  DB_PASSWORD: senha_super_secreta
+  DB_NAME: banco_teste
  depends_on:
  - db
  networks:
